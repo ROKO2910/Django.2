@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Clientes Potenciales</title>
+</head>
+<body>
+    <h1>Agenda de Clientes Potenciales</h1>
+    <table border="5">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Sexo</th>
+                <th>Email</th>
+                <th>Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in usuario %}
+            <tr>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.edad }}</td>
+                <td>{{ persona.sexo }}</td>
+                <td>{{ persona.email }}</td>
+                <td>{{ persona.telefono }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

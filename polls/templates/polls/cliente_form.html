@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Clientes Potenciales</title>
+</head>
+<body>
+    <h1>Agenda de Clientes Potenciales</h1>
+    <form id="clienteForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" min="18" max="120" required>
+        
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" pattern="[0-9]{10}" required>
+        
+        <button type="submit">Guardar</button>
+        <button onclick="window.location.href = 'lista_clientes.html';">Ver los clientes</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('clienteForm');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            // Retrieve form data
+            const nombre = form.querySelector('#nombre').value;
+            const edad = form.querySelector('#edad').value;
+            const sexo = form.querySelector('#sexo').value;
+            const email = form.querySelector('#email').value;
+            const telefono = form.querySelector('#telefono').value;
+            
+            // Basic validation example
+            if (edad < 18) {
+                alert('Debes ser mayor de 18 años para registrarte.');
+                return;
+            }
+            
+            // Example of logging form data (replace with actual data handling)
+            console.log('Datos guardados:', { nombre, edad, sexo, email, telefono });
+        });
+    </script>
+</body>
+</html>

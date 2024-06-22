@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes</title>
+</head>
+<body>
+    <h1>Personajes</h1>
+    <form method="get">
+        {% csrf_token %}
+        <label for="personaje">Número del personaje:</label>
+        <input type="text" id="personaje" name="personaje"><br><br>
+        <input type="submit" value="Buscar">
+    </form>
+    {% if resultado %}
+        {% if resultado.error %}
+            <h2>{{ resultado.error }}</h2>
+        {% else %}
+            <table border="5">
+                <thead>
+                    <tr>
+                        <th>Número del personaje</th>
+                        <th>Nombre</th>
+                        <th>Estado de vida</th>
+                        <th>Especie</th>
+                        <th>Tipo</th>
+                        <th>Género</th>
+                        <th>Origen</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ resultado.id }}</td>
+                        <td>{{ resultado.name }}</td>
+                        <td>{{ resultado.status }}</td>
+                        <td>{{ resultado.species }}</td>
+                        <td>{{ resultado.type }}</td>
+                        <td>{{ resultado.gender }}</td>
+                        <td>{{ resultado.origin.name }}</td>
+                        <td><img src="{{ resultado.image }}" alt="Image"></td>
+                    </tr>
+                </tbody>
+            </table>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
